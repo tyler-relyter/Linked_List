@@ -5,7 +5,7 @@
 # DESCRIPTION: This file contains the Node and LinkedList classes, used to implement the Linked List ADT.
 
 class Node:
-    def __init__(self, data=None):
+    def __init__(self, data=None) -> None:
         """
         Constructor for Node class
         :param data: Any
@@ -13,16 +13,16 @@ class Node:
         self.data = data
         self.next = None
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         """
         Returns the data of the node
         :return: Any
         """
-        return self.data
+        return str(self.data)
 
 
 class LinkedList:
-    def __init__(self, nodes=None):
+    def __init__(self, nodes=None) -> None:
         """
         Constructor for LinkedList class
         :param nodes: List, optional
@@ -38,10 +38,9 @@ class LinkedList:
                 node = node.next
                 self.size += 1
             self.tail = node
-            self.size +=1
+            self.size += 1
 
-
-    def add(self, item):
+    def add(self, item) -> None:
         """
         Adds a node to the front of the linked list
         :param item: Any
@@ -53,8 +52,7 @@ class LinkedList:
         self.size += 1
         return
 
-
-    def append(self, item):
+    def append(self, item) -> None:
         """
         Adds a node to the end of the linked list
         :param item: Any
@@ -75,7 +73,7 @@ class LinkedList:
         self.size += 1
         return
 
-    def search(self, item):
+    def search(self, item) -> bool:
         """
         Searches for a node in the linked list
         :param item: Any
@@ -91,7 +89,7 @@ class LinkedList:
                 return True
         return False
 
-    def remove(self, item):
+    def remove(self, item) -> None:
         """
         Removes a node from the linked list
         :param item: Any
@@ -113,7 +111,7 @@ class LinkedList:
             prev_node = node
         raise Exception(f"{target_node.data} not found in LinkedList")
 
-    def pop(self, pos=None):
+    def pop(self, pos=None) -> Node:
         """
         Removes and returns the last node in the linked list if no position is given. Otherwise, removes and returns the
         node at the given position.
@@ -162,15 +160,14 @@ class LinkedList:
         self.size -= 1
         return popped_node
 
-
-    def is_empty(self):
+    def is_empty(self) -> bool:
         """
         Checks if the linked list is empty
         :return: bool
         """
         return self.size == 0
 
-    def __iter__(self):
+    def __iter__(self) -> Node:
         """
         Iterates through the linked list
         :yield: Node
@@ -180,7 +177,7 @@ class LinkedList:
             yield node
             node = node.next
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         """
         Returns the linked list as a string
         :return: str
@@ -193,7 +190,7 @@ class LinkedList:
         nodes.append("End")
         return " -> ".join(nodes)
 
-    def __len__(self):
+    def __len__(self) -> int:
         """
         Returns the size of the linked list
         :return: int
@@ -201,9 +198,7 @@ class LinkedList:
         return self.size
 
 
-
 if __name__ == '__main__':
-
     llist = LinkedList(['a', 'b', 'c'])
     print(llist)
     print(llist.pop())
@@ -215,6 +210,3 @@ if __name__ == '__main__':
     llist.add("R")
     print(llist)
     print(llist.size)
-
-
-
